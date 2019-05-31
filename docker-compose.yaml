@@ -1,0 +1,21 @@
+version: "3"
+services:
+  datasource1:
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=datasource1
+    volumes:
+      - '/data1'
+  datasource2:
+    image: postgres:latest
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_USERs=root
+      - POSTGRES_PASSWORD=datasource2
+    volumes:
+      - '/data2'
+

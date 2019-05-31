@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name:   spring-boot-with-multiples-datasources
+  jpa:
+    #generate-ddl: true
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob.non_contextual_creation: true
+  datasource:
+    url: jdbc:postgresql://localhost:5434/postgres
+    username: root
+    password: datasource1
+    #initialization-mode: never
+
+app.second.datasource:
+  url: jdbc:postgresql://localhost:5435/postgres
+  username: root
+  password: datasource2
+  #initialization-mode: never
+
+hibernate:
+  physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+
