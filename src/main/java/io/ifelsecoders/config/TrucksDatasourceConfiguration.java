@@ -24,13 +24,12 @@ import java.util.Map;
         basePackages = "io.ifelsecoders.trucks.repository")
 public class TrucksDatasourceConfiguration {
     @Bean
-    @ConfigurationProperties("app.second.datasource")
+    @ConfigurationProperties("app.trucks.datasource")
     public DataSourceProperties truckDataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Bean(name = "trucksDataSource")
-    @ConfigurationProperties("app.second.datasource")
     public HikariDataSource trucksDataSource() {
         return truckDataSourceProperties().initializeDataSourceBuilder()
                 .type(HikariDataSource.class).build();

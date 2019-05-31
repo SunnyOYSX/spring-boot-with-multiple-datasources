@@ -26,14 +26,13 @@ import java.util.Map;
 public class CarsDatasourceConfiguration {
     @Bean
     @Primary
-    @ConfigurationProperties("spring.datasource")
+    @ConfigurationProperties("app.cars.datasource")
     public DataSourceProperties carsDataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Bean(name = "carsDataSource")
     @Primary
-    @ConfigurationProperties("spring.datasource")
     public HikariDataSource carsDataSource() {
         return carsDataSourceProperties().initializeDataSourceBuilder()
                 .type(HikariDataSource.class).build();
